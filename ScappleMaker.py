@@ -97,14 +97,16 @@ class InputController:
         elif input == 'list':
             self.listCurrentTitles()
             self.num = raw_input('Type ID number to activate text: ')
-            if int(self.num) in self.lit.allCurrentIDs:
-                for title, id in self.lit.allCurrentTitles:
-                    if id == int(self.num):
+            print self.num, self.lit.allCurrentIDs
+            if self.num in self.lit.allCurrentIDs:
+                for title, id in self.lit.allCurrentTitles.iteritems():
+                    if id == self.num:
                         self.lit.activeTitle = title
-                self.lit.activeId = int(self.num)
+                self.lit.activeId = self.num
             else:
                 "Couldn't find that title, sorry. Check your ID was correct."
         else:
+            #They wrote a title, so append it to the current list.
             print "Sorry, didn't understand that command..."
 
     def listCurrentTitles(self):
