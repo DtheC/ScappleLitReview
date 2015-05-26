@@ -1,6 +1,7 @@
 __author__ = 'Travis'
 import xml.etree.ElementTree as ET
 
+
 class ScappleXML:
     """A class for holding and modifying the data of a Scapple XML file"""
     def __init__(self, XMLFile):
